@@ -25,7 +25,7 @@ Route::get('/students/update', function () {
 });
 
 Route::get('/students/delete', function () {
-    $student = Student::where('email', 'decemaerobles69@gmail.com')->first();
+    $student = Student::where('email', 'decemaerobles69@gmaisl.com')->first();
     $student->delete();
     return 'Student Deleted!';
 });
@@ -35,5 +35,9 @@ Route::get('/courses/create', function () {
     $course->course_name = 'Introduction to Database';
     $course->save();
     return 'Course Created'; 
+});
+Route::get('/course/{id}/students', function ($id){
+    $course = Course::find($id);
+    return $course->students;
 });
 ?>
